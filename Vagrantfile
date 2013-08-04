@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
                      v.vmx["numvcpus"] = 2
 	                elsif prefix == "controller"
     	               v.vmx["memsize"] = 2048
-                  elsif prefix == "client"
+                  elsif prefix == "client" or prefix == "proxy"
                      v.vmx["memsize"] = 512
 	                end
                 end
@@ -57,7 +57,7 @@ Vagrant.configure("2") do |config|
                      vbox.customize ["modifyvm", :id, "--cpus", 2]
 		              elsif prefix == "controller"
 		                 vbox.customize ["modifyvm", :id, "--memory", 2048]
-		              elsif prefix == "client"
+		              elsif prefix == "client" or prefix == "proxy"
                       vbox.customize ["modifyvm", :id, "--memory", 512]
 		              end
                 end
