@@ -3,6 +3,7 @@
 require 'securerandom'
 
 nodes = {
+    'proxy' => [1, 110],
     'controller'  => [1, 200],
     'compute'  => [1, 201],
     'cinder' => [1, 211],
@@ -10,8 +11,8 @@ nodes = {
 
 # This is some magic to help avoid network collisions.
 # If however, it still collides, comment out this line and uncomment the one below it
-third_octet = SecureRandom.random_number(200)
-#third_octet = 172
+#third_octet = SecureRandom.random_number(200)
+third_octet = 0
 
 Vagrant.configure("2") do |config|
     # We assume virtualbox, if using Fusion, you'll want to change this as needed
