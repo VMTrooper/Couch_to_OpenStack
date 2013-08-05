@@ -5,6 +5,7 @@ require 'securerandom'
 nodes = {
     'proxy' => [1, 110],
     'controller'  => [1, 200],
+    'client' => [1, 100],
     'compute'  => [1, 201],
     'cinder' => [1, 211],
 }
