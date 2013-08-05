@@ -8,10 +8,10 @@
 . /vagrant/common.sh
 
 # Install some deps
-sudo apt-get install -y linux-headers-`uname -r` build-essential python-mysqldb xfsprogs
+sudo apt-get install -y --force-yes linux-headers-`uname -r` build-essential python-mysqldb xfsprogs
 
 # Install Cinder Things
-sudo apt-get install -y cinder-api cinder-scheduler cinder-volume open-iscsi python-cinderclient tgt sysfsutils
+sudo apt-get install -y --force-yes cinder-api cinder-scheduler cinder-volume open-iscsi python-cinderclient tgt sysfsutils
 
 # Restart services
 sudo service open-iscsi start
@@ -43,7 +43,8 @@ verbose = True
 auth_strategy = keystone
 #osapi_volume_listen_port=5900
 
-iscsi_ip_address = $(echo $OSCONTROLLER_P | sed 's/\.[0-9]*$/.211/') #set private IP address for providing iSCSI storage to VMs
+#set private IP address for providing iSCSI storage to VMs
+iscsi_ip_address = $(echo $OSCONTROLLER_P | sed 's/\.[0-9]*$/.211/') 
 
 # Add these when not using the defaults.
 rabbit_host = ${CONTROLLER_HOST}
